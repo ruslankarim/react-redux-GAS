@@ -1,0 +1,34 @@
+<script type="text/babel" data-plugins="transform-class-properties">
+  const {Provider} = ReactRedux
+  const {createStore, compose, combineReducers} = Redux
+  
+  
+  const ADD_ARTICLE = "ADD_ARTICLE"
+  
+  const articleReducer = (state = [], action) => {
+    switch (action.type) {
+      case ADD_ARTICLE:
+        return [...state, action.payload];
+      default:
+        return state;
+      }
+    }
+  
+  const rootReducer = combineReducers({ articles: articleReducer });
+  
+  const store = createStore(rootReducer)
+  
+  
+  function Main () {
+    return (
+      <Provider store={store}>
+        <App />
+      </Provider>
+    )
+  }
+  
+  ReactDOM.render(
+      <Main />, document.getElementById('main')
+    )
+    
+</script>

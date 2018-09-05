@@ -1,0 +1,30 @@
+<script type="text/babel" data-plugins="transform-class-properties">
+  class Creditor extends React.Component {
+    
+    componentDidMount(){
+      const debtor = this.inputCreditor = document.getElementById('select-creditor')
+      M.FormSelect.init(this.inputCreditor, 
+                                                {onAutocomplete: function(){
+                                                     
+                                                  },
+                                                  data: {
+                                                    "Шинный двор": null,
+                                                    "Шины и диски Казань": null,
+                                                  },
+                                                })
+    }
+    render(){
+      return (
+      <div className = "row">
+       <div className="input-field col s4">
+        <select id="select-creditor">
+          <option value="1">Шинный двор</option>
+          <option value="2">Шины и и диски Казань</option>
+        </select>
+        <label>Выберете кредитора</label>
+      </div>
+     </div>
+      )
+    } 
+  }
+</script>

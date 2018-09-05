@@ -1,0 +1,30 @@
+<script type="text/babel" data-plugins="transform-class-properties">
+  
+  class DashBoard extends React.Component {
+    
+      constructor(props) {
+      super(props)
+      this.state = {
+        isOpen: false
+      }
+      this.handler = this.handler.bind(this)
+    }
+    
+    handler() {
+      this.setState({
+        isOpen: true
+    })
+    }
+    
+    render () {
+    
+      return (
+      <div className="container">
+        <Creditor />
+        <Debtor handler = {this.handler}/>
+        <DataDebtor isOpen = {this.state.isOpen}/>
+      </div>
+      )    
+    }    
+  }
+</script>
